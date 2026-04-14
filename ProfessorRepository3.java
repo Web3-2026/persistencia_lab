@@ -10,12 +10,12 @@ public class ProfessorRepository {
 
     public void getProfessores() {
 
-        Statement instrucao = null;
+        Statement consulta = null;
         ResultSet resultados = null;
 
         try {
-            instrucao = conexao.createStatement();
-            resultados = instrucao.executeQuery("SELECT * FROM professores");
+            consulta = conexao.createStatement();
+            resultados = consulta.executeQuery("SELECT * FROM professores");
 
             while (resultados.next()) {
                 System.out.println(resultados.getString("nome"));
@@ -28,26 +28,26 @@ public class ProfessorRepository {
     }
 
     public void inserir(Professor professor) {
-        PreparedStatement statement = null;
+        PreparedStatement consultaPreparada = null;
 
         try {
-            statement = conexao.prepareStatement(
+            consultaPreparada = conexao.prepareStatement(
                     "INSERT INTO professores (nome, email, data_nascimento, salario_base, curso_id) VALUES (?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
-            statement.setString(1, professor.getNome());
-            statement.setString(2, professor.getEmail());
-            statement.setDate(3, java.sql.Date.valueOf(professor.getDataNascimento()));
-            statement.setDouble(4, professor.getSalarioBase());
-            statement.setInt(5, professor.getCurso().getId());
+            consultaPreparada.setString(1, professor.getNome());
+            consultaPreparada.setString(2, professor.getEmail());
+            consultaPreparada.setDate(3, java.sql.Date.valueOf(professor.getDataNascimento()));
+            consultaPreparada.setDouble(4, professor.getSalarioBase());
+            consultaPreparada.setInt(5, professor.getCurso().getId());
 
-            int rowsAffected = statement.executeUpdate();
+            int rowsAffected = consultaPreparada.executeUpdate();
 
             if (rowsAffected > 0) {
-                ResultSet rs = statement.getGeneratedKeys();
-                while (rs.next()) {
-                    int id = rs.getInt(1);
-                    System.out.println("Done! Id: " + id);
+                ResultSet resultados = consultaPreparada.getGeneratedKeys();
+                while (resultados.next()) {
+                    int id = resultados.getInt(1);
+                    System.out.println("Pronto! Id: " + id);
                 }
             } else {
                 System.out.println("Nenhuma linha afetada!");

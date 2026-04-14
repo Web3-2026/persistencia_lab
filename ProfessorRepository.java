@@ -9,12 +9,12 @@ public class ProfessorRepository {
 
     public void getProfessores() {
 
-        Statement instrucao = null;
+        Statement consulta = null;
         ResultSet resultados = null;
 
         try {
-            instrucao = conexao.createStatement();
-            resultados = instrucao.executeQuery("SELECT * FROM professores");
+            consulta = conexao.createStatement();
+            resultados = consulta.executeQuery("SELECT * FROM professores");
 
             while (resultados.next()) {
                 System.out.println(resultados.getString("nome"));

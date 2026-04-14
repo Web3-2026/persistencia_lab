@@ -10,12 +10,12 @@ public class ProfessorRepository {
 
     public void getProfessores() {
 
-        Statement instrucao = null;
+        Statement consulta = null;
         ResultSet resultados = null;
 
         try {
-            instrucao = conexao.createStatement();
-            resultados = instrucao.executeQuery("SELECT * FROM professores");
+            consulta = conexao.createStatement();
+            resultados = consulta.executeQuery("SELECT * FROM professores");
 
             while (resultados.next()) {
                 System.out.println(resultados.getString("nome"));
@@ -28,19 +28,19 @@ public class ProfessorRepository {
     }
 
     public void inserir(Professor professor) {
-        PreparedStatement instrucao = null;
+        PreparedStatement consultaPreparada = null;
 
         try {
-            instrucao = conexao.prepareStatement(
+            consultaPreparada = conexao.prepareStatement(
                     "INSERT INTO professores (nome, email, data_nascimento, salario_base, curso_id) VALUES (?, ?, ?, ?, ?)");
 
-            instrucao.setString(1, professor.getNome());
-            instrucao.setString(2, professor.getEmail());
-            instrucao.setDate(3, java.sql.Date.valueOf(professor.getDataNascimento()));
-            instrucao.setDouble(4, professor.getSalarioBase());
-            instrucao.setInt(5, professor.getCurso().getId());
+            consultaPreparada.setString(1, professor.getNome());
+            consultaPreparada.setString(2, professor.getEmail());
+            consultaPreparada.setDate(3, java.sql.Date.valueOf(professor.getDataNascimento()));
+            consultaPreparada.setDouble(4, professor.getSalarioBase());
+            consultaPreparada.setInt(5, professor.getCurso().getId());
 
-            int rowsAffected = instrucao.executeUpdate();
+            int rowsAffected = consultaPreparada.executeUpdate();
 
             System.out.println("Pronto! " + rowsAffected + " linha(s) afetada(s).");
 
