@@ -8,7 +8,7 @@ public class ConexaoFactory {
 
         try {
             
-            return DriverManager.getConnection("jdbc:mysql://localhost/" . database, user, pass);
+            return DriverManager.getConnection("jdbc:mysql://localhost/" + database, user, pass);
 
         } catch (SQLException e) {
             
