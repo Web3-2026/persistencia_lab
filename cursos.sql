@@ -1,10 +1,10 @@
-CREATE TABLE curso (
+CREATE TABLE cursos (
   id int NOT NULL AUTO_INCREMENT,
   nome varchar(60) DEFAULT NULL,
   PRIMARY KEY (id)
 );
 
-CREATE TABLE professor (
+CREATE TABLE professores (
   id int NOT NULL AUTO_INCREMENT,
   nome varchar(60) NOT NULL,
   email varchar(100) NOT NULL,
@@ -12,16 +12,16 @@ CREATE TABLE professor (
   salarioBase double NOT NULL,
   cursoId int NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (cursoId) REFERENCES curso (id)
+  FOREIGN KEY (cursoId) REFERENCES cursos (id)
 );
 
-INSERT INTO curso (nome) VALUES 
+INSERT INTO cursos (nome) VALUES 
   ('Tecnólogo em Análise de Desenvolvimento de Sistemas'),
   ('Engenharia de Aquicultura'),
   ('Bacharelado em Física'),
   ('Ensino Médio');
 
-INSERT INTO professor (nome, email, dataNascimento, salarioBase, cursoId) VALUES 
+INSERT INTO professores (nome, email, dataNascimento, salarioBase, cursoId) VALUES 
   ('Alcyon Bennacchyo', 'alcyon.bennacchyo@gmail.com', '1980-05-10 00:00:00', 500.0, 1),
   ('Akana Arrunda de Olanda', 'akana.olanda@gmail.com', '1985-08-15 00:00:00', 520.0, 1),
   ('Pola Anatauke', 'pola.anatauke@gmail.com', '1978-03-22 00:00:00', 550.0, 1),
