@@ -27,7 +27,7 @@ public class ProfessorRepository {
         }
     }
 
-    public void insercao(Professor professor) {
+    public void inserir(Professor professor) {
         PreparedStatement instrucao = null;
 
         try {
@@ -42,7 +42,7 @@ public class ProfessorRepository {
 
             int rowsAffected = instrucao.executeUpdate();
 
-            System.out.println("Done! " + rowsAffected + " row(s) affected.");
+            System.out.println("Pronto! " + rowsAffected + " linha(s) afetada(s).");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
