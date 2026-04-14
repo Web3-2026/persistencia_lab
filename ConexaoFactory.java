@@ -4,11 +4,11 @@ public class ConexaoFactory {
         
         String database = "";
         String user = "";
-        String pass = ""
+        String pass = "";
 
         try {
             
-            return DriverManager.getConnection("jdbc:mysql://localhost/".database, user, pass);
+            return DriverManager.getConnection("jdbc:mysql://localhost/" . database, user, pass);
 
         } catch (SQLException e) {
             
