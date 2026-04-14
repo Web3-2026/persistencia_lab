@@ -1,8 +1,8 @@
-public class ProfessorRepositoryKeys {
+public class ProfessorRepository {
 
     private Connection conexao;
 
-    public ProfessorRepositoryKeys() {
+    public ProfessorRepository() {
 
         ConexaoFactory conexaoFactory = new ConexaoFactory();
         conexao = conexaoFactory.getConnection();
