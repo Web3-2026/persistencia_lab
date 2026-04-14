@@ -27,20 +27,20 @@ public class ProfessorRepository {
         }
     }
 
-    public void insert(Professor professor) {
-        PreparedStatement statement = null;
+    public void insercao(Professor professor) {
+        PreparedStatement instrucao = null;
 
         try {
-            statement = conexao.prepareStatement(
+            instrucao = conexao.prepareStatement(
                     "INSERT INTO professores (nome, email, data_nascimento, salario_base, curso_id) VALUES (?, ?, ?, ?, ?)");
 
-            statement.setString(1, professor.getNome());
-            statement.setString(2, professor.getEmail());
-            statement.setDate(3, java.sql.Date.valueOf(professor.getDataNascimento()));
-            statement.setDouble(4, professor.getSalarioBase());
-            statement.setInt(5, professor.getCurso().getId());
+            instrucao.setString(1, professor.getNome());
+            instrucao.setString(2, professor.getEmail());
+            instrucao.setDate(3, java.sql.Date.valueOf(professor.getDataNascimento()));
+            instrucao.setDouble(4, professor.getSalarioBase());
+            instrucao.setInt(5, professor.getCurso().getId());
 
-            int rowsAffected = statement.executeUpdate();
+            int rowsAffected = instrucao.executeUpdate();
 
             System.out.println("Done! " + rowsAffected + " row(s) affected.");
 
