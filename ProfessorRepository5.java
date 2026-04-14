@@ -1,14 +1,3 @@
-package com.example.persistencia_lab.repositories;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import com.example.persistencia_lab.infrastructure.ConexaoFactory;
-import com.example.persistencia_lab.models.Professor;
-
 public class ProfessorRepository {
 
     private Connection conexao;
@@ -38,7 +27,7 @@ public class ProfessorRepository {
         }
     }
 
-    public void insert(Professor professor) {
+    public void inserir(Professor professor) {
         PreparedStatement statement = null;
 
         try {
