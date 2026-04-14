@@ -27,7 +27,7 @@ public class ProfessorRepository {
         }
     }
 
-    public void insert(Professor professor) {
+    public void inserir(Professor professor) {
         PreparedStatement statement = null;
 
         try {
