@@ -8,7 +8,7 @@ public class ProfessorRepository {
         conexao = conexaoFactory.getConnection();
     }
 
-    public void getProfessors() {
+    public void getProfessores() {
 
         Statement instrucao = null;
         ResultSet resultados = null;
