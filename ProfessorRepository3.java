@@ -27,7 +27,7 @@ public class ProfessorRepository {
         }
     }
 
-    public void insert(Professor professor) {
+    public void inserir(Professor professor) {
         PreparedStatement statement = null;
 
         try {
@@ -50,10 +50,10 @@ public class ProfessorRepository {
                     System.out.println("Done! Id: " + id);
                 }
             } else {
-                System.out.println("No rows affected!");
+                System.out.println("Nenhuma linha afetada!");
             }
 
-            System.out.println("Done! " + rowsAffected + " row(s) affected.");
+            System.out.println("Pronto! " + rowsAffected + " linha(s) afetada(s).");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
